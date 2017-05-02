@@ -1,6 +1,7 @@
 var token;
 var user;
-var provider;
+var provider = new firebase.auth.GoogleAuthProvider();
+var credential;
 setInterval(function(){
 	if(user){
 		var logoutbtn = $(".Logout");
@@ -46,8 +47,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 		user = firebase.auth().currentUser;
 	}else{
 		firebase.auth().getRedirectResult().then(function(result) {
-		var user = result.user;
-		var credential = result.credential;
+		user = result.user;
+		credential = result.credential;
 		if(user===null){
 			firebase.auth().signInWithRedirect(provider);
 		}else{
@@ -67,7 +68,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 	}
 });
 function signInWithGoogle(){
-	provider = new firebase.auth.GoogleAuthProvider();
 	//firebase.auth().signInWithRedirect(provider);
 	firebase.auth().getRedirectResult().then(function(result) {
 		user = result.user;
