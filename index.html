@@ -29,9 +29,9 @@
   </head>
   <body>
     <div id="Button_Holder" style="background-color: RGBA(0,0,0,0); right: 0px; top: 0px; position:absolute; z-index:25;">
-    <button class="Login" onClick="signInWithGoogle();">Sign in with Google</button>
+    <button class="Login" onClick="signInWithGoogle(); return false;">Sign in with Google</button>
       <br>
-    <button class="Logout" style = "top: 0px; z-index: 26" onClick="signOut();">Log out</button>
+    <button class="Logout" style = "top: 0px; z-index: 26" onClick="signOut(); return false;">Log out</button>
     </div>
     <script src="sketch.js"></script>
   </body>
