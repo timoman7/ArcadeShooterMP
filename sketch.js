@@ -3,19 +3,15 @@ var user;
 var provider;
 setInterval(function(){
 	if(user){
-		var logoutbtn = $(".Logout")[0];
+		var logoutbtn = $(".Logout");
 		logoutbtn.show();
 		var loginbtns = $(".Login");
-		for(var i = 0; i < loginbtns.length; i++){
-			loginbtns[i].hide();
-		}
+		loginbtns.hide();
 	}else{
-		var logoutbtn = $(".Logout")[0];
+		var logoutbtn = $(".Logout");
 		logoutbtn.hide();
 		var loginbtns = $(".Login");
-		for(var i = 0; i < loginbtns.length; i++){
-			loginbtns[i].show();
-		}
+		loginbtns.show();
 	}
 },100);
 function signOut(){
