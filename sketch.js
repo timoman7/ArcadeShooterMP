@@ -68,26 +68,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	}
 });
 function signInWithGoogle(){
-	//firebase.auth().signInWithRedirect(provider);
-	firebase.auth().getRedirectResult().then(function(result) {
-		user = result.user;
-		credential = result.credential;
-		if(user===null){
-			firebase.auth().signInWithRedirect(provider);
-		}else{
-			user = firebase.auth().currentUser;
-		}
-	}, function(error) {
-		// The provider's account email, can be used in case of
-		// auth/account-exists-with-different-credential to fetch the providers
-		// linked to the email:
-		var email = error.email;
-		// The provider's credential:
-		var credential = error.credential;
-		// In case of auth/account-exists-with-different-credential error,
-		// you can fetch the providers using this:
-
-	});
+	firebase.auth().signInWithRedirect(provider);
 }
 var globals, keys, mouse, buttons, platforms, f, fp, fps, framerate, frames, bullet_sound, bullet_hit, rocket_sound, rocket_explode, state, dbug, gravity, bg, player, test, testPlat, testPlat2, Tau, enemyBullet, minigunBullet, defaultBullet, rocketBullet, p1c, setBG, backToMenu, backToMenu2, backToMenu3, playGame, helpBtn, testDrop, bgR, bgG, bgB, bgrP1Btn, bgrP5Btn, bgrP10Btn, bgrM1Btn, bgrM5Btn, bgrM10Btn, bggP1Btn, bggP5Btn, bggP10Btn, bggM1Btn, bggM5Btn, bggM10Btn, bgbP1Btn, bgbP5Btn, bgbP10Btn, bgbM1Btn, bgbM5Btn, bgbM10Btn;
 //Sin angle / hyp = Y
