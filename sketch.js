@@ -1,7 +1,32 @@
 var token;
 var user;
 var provider;
-
+setInterval(function(){
+	if(user){
+		var logoutbtn = $(".Logout")[0];
+		logoutbtn.show();
+		var loginbtns = $(".Login");
+		for(var i = 0; i < loginbtns.length; i++){
+			loginbtns[i].hide();
+		}
+	}else{
+		var logoutbtn = $(".Logout")[0];
+		logoutbtn.hide();
+		var loginbtns = $(".Login");
+		for(var i = 0; i < loginbtns.length; i++){
+			loginbtns[i].show();
+		}
+	}
+},100);
+function signOut(){
+	firebase.auth().signOut().then(function() {
+	  alert("Signed out.");
+		location.reload();
+	}).catch(function(error) {
+	  // An error happened.
+		alert("Somehow you screwed up logging out.");
+	});
+}
 firebase.auth().getRedirectResult().then(function(result) {
   if (result.credential) {
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
