@@ -4,17 +4,6 @@
     <title>
     Arcade Shooter MP
     </title>
-    
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <div id="Button_Holder" style="background-color: RGBA(0,0,0,0); right: 0px; top: 0px; position:absolute; z-index:25;">
-    <button class="Login" onClick="signInWithGit();">Sign in with Github</button>
-      <br>
-    <button class="Login" onClick="signInWithGoogle();">Sign in with Google</button>
-      <br>
-    <button class="Logout" style = "top: 0px; z-index: 26" onClick="signOut();">Log out</button>
-    </div>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -32,6 +21,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="Button_Holder" style="background-color: RGBA(0,0,0,0); right: 0px; top: 0px; position:absolute; z-index:25;">
+    <button class="Login" onClick="signInWithGit();">Sign in with Github</button>
+      <br>
+    <button class="Login" onClick="signInWithGoogle();">Sign in with Google</button>
+      <br>
+    <button class="Logout" style = "top: 0px; z-index: 26" onClick="signOut();">Log out</button>
+    </div>
     <script src="sketch.js"></script>
   </body>
 </html>
