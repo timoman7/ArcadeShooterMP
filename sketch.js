@@ -1,18 +1,15 @@
 var token;
 var user;
 var provider;
-if(!user){
-	provider = new firebase.auth.GithubAuthProvider();
-	firebase.auth().signInWithRedirect(provider);
-}
+
 firebase.auth().getRedirectResult().then(function(result) {
   if (result.credential) {
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-    var token = result.credential.accessToken;
+    token = result.credential.accessToken;
     // ...
   }
   // The signed-in user info.
-  var user = result.user;
+  user = result.user;
 }).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
@@ -23,6 +20,11 @@ firebase.auth().getRedirectResult().then(function(result) {
   var credential = error.credential;
   // ...
 });
+
+if(!user){
+	provider = new firebase.auth.GithubAuthProvider();
+	firebase.auth().signInWithRedirect(provider);
+}
 var globals, keys, mouse, buttons, platforms, f, fp, fps, framerate, frames, bullet_sound, bullet_hit, rocket_sound, rocket_explode, state, dbug, gravity, bg, player, test, testPlat, testPlat2, Tau, enemyBullet, minigunBullet, defaultBullet, rocketBullet, p1c, setBG, backToMenu, backToMenu2, backToMenu3, playGame, helpBtn, testDrop, bgR, bgG, bgB, bgrP1Btn, bgrP5Btn, bgrP10Btn, bgrM1Btn, bgrM5Btn, bgrM10Btn, bggP1Btn, bggP5Btn, bggP10Btn, bggM1Btn, bggM5Btn, bggM10Btn, bgbP1Btn, bgbP5Btn, bgbP10Btn, bgbM1Btn, bgbM5Btn, bgbM10Btn;
 //Sin angle / hyp = Y
 //Cos angle / hyp = X
