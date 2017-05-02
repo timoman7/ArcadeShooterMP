@@ -41,10 +41,6 @@ firebase.auth().getRedirectResult().then(function(result) {
   var credential = error.credential;
   // ...
 });
-function signInWithGit(){
-	provider = new firebase.auth.GithubAuthProvider();
-	firebase.auth().signInWithRedirect(provider);
-}
 function signInWithGoogle(){
 	provider = new firebase.auth.GoogleAuthProvider();
 	firebase.auth().signInWithRedirect(provider);
