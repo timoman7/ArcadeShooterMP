@@ -25,28 +25,35 @@ function signOut(){
 		alert("Somehow you screwed up logging out.");
 	});
 }
-firebase.auth().getRedirectResult().then(function(result) {
-	user = result.user;
-	credential = result.credential;
-	if(user===null){
-		alert("Something went wrong");
-	}else{
+firebase.auth().onAuthStateChanged(function(user) {
+	if(user){
+		//Already logged in
 		currentUser = firebase.auth().currentUser;
+	}else{
+		firebase.auth().getRedirectResult().then(function(result) {
+			//Log in
+			user = result.user;
+			credential = result.credential;
+			if(user===null){
+				//User is null after redirect
+				alert("Something went wrong");
+			}else{
+				//User is defined after redirect
+				currentUser = firebase.auth().currentUser;
+			}
+		}, function(error) {
+			// The provider's account email, can be used in case of
+			// auth/account-exists-with-different-credential to fetch the providers
+			// linked to the email:
+			var email = error.email;
+			// The provider's credential:
+			var credential = error.credential;
+			// In case of auth/account-exists-with-different-credential error,
+			// you can fetch the providers using this:
+			console.log(error);
 
+		});
 	}
-}, function(error) {
-	// The provider's account email, can be used in case of
-	// auth/account-exists-with-different-credential to fetch the providers
-	// linked to the email:
-	var errCode = error.code;
-	var errMessage = error.message;
-	var email = error.email;
-	// The provider's credential:
-	var credential = error.credential;
-	console.log(errCode,errMessage);
-	// In case of auth/account-exists-with-different-credential error,
-	// you can fetch the providers using this:
-
 });
 function signInWithGoogle(){
 	var googleProvider = new firebase.auth.GoogleAuthProvider();
