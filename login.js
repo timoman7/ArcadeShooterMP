@@ -1,5 +1,4 @@
 var currentUser;
-var credential;
 setInterval(function(){
 	if(currentUser){
 		var logoutbtn = $(".Logout");
@@ -14,12 +13,13 @@ setInterval(function(){
 	}
 },100);
 function signOut(){
+	alert("Signed out");
 	firebase.auth().signOut().then(function() {
 	  alert("Signed out.");
 		location.reload();
 	}).catch(function(error) {
 	  // An error happened.
-		console.log(err0r);
+		console.log(error);
 		alert("Somehow you screwed up logging out.");
 	});
 }
