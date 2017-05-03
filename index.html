@@ -8,19 +8,19 @@
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyAmLcJwWo7TUOH8AqdhYyDZGPrK9FWOyVg",
-        authDomain: "multiplayerjs.firebaseapp.com",
-        databaseURL: "https://multiplayerjs.firebaseio.com",
-        projectId: "multiplayerjs",
-        storageBucket: "multiplayerjs.appspot.com",
-        messagingSenderId: "429156673777"
+        apiKey: "AIzaSyBB5rgZhVrlmdjPDQKm1jvK3d9D3A8wBHA",
+        authDomain: "arcadeshootermp.firebaseapp.com",
+        databaseURL: "https://arcadeshootermp.firebaseio.com",
+        projectId: "arcadeshootermp",
+        storageBucket: "arcadeshootermp.appspot.com",
+        messagingSenderId: "214723540655"
       };
       firebase.initializeApp(config);
     </script>
     <script src="jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.sound.min.js"></script>
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/p5.dom.min.js"></script>
+    <script src="lib/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
@@ -29,6 +29,7 @@
       <br>
     <button class="Logout" style = "top: 0px; z-index: 26" onClick="signOut(); return false;">Log out</button>
     </div>
+    <script src="login.js"></script>
     <script src="sketch.js"></script>
   </body>
 </html>
