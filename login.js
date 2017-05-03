@@ -12,18 +12,8 @@ setInterval(function(){
 		loginbtns.show();
 	}
 },100);
-function signOut(){
-	alert("Signed out");
-	firebase.auth().signOut().then(function() {
-	  alert("Signed out.");
-		location.reload();
-	}).catch(function(error) {
-	  // An error happened.
-		console.log(error);
-		alert("Somehow you screwed up logging out.");
-	});
-}
 firebase.auth().onAuthStateChanged(function(user) {
+	console.log(user);
 	if(user){
 		//Already logged in
 		currentUser = firebase.auth().currentUser;
@@ -34,7 +24,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 			var credential = result.credential;
 			if(user===null){
 				//User is null after redirect
-				alert("Something went wrong");
 			}else{
 				//User is defined after redirect
 				currentUser = firebase.auth().currentUser;
@@ -56,4 +45,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 function signInWithGoogle(){
 	var googleProvider = new firebase.auth.GoogleAuthProvider();
 	firebase.auth().signInWithRedirect(googleProvider);
+}
+function signOut(){
+	firebase.auth().signOut().then(function() {
+	  alert("Signed out.");
+		location.reload();
+	}).catch(function(error) {
+	  // An error happened.
+		console.log(error);
+		alert("Somehow you screwed up logging out.");
+	});
 }
