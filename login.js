@@ -1,4 +1,5 @@
 var currentUser;
+var googleProvider = new firebase.auth.GoogleAuthProvider();
 setInterval(function(){
 	if(currentUser){
 		var logoutbtn = $(".Logout");
@@ -24,6 +25,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 			var credential = result.credential;
 			if(user===null){
 				//User is null after redirect
+				firebase.auth().signInWithRedirect(googleProvider);
 			}else{
 				//User is defined after redirect
 				currentUser = firebase.auth().currentUser;
@@ -41,9 +43,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 		});
 	}
+},function(err){
+	console.log(err);
 });
 function signInWithGoogle(){
-	var googleProvider = new firebase.auth.GoogleAuthProvider();
 	firebase.auth().signInWithRedirect(googleProvider);
 }
 function signOut(){
