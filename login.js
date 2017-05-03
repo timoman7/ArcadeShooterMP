@@ -23,9 +23,7 @@ function initApp(){
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
           // [START_EXCLUDE]
-          document.getElementById('quickstart-oauthtoken').textContent = token;
         } else {
-          document.getElementById('quickstart-oauthtoken').textContent = 'null';
           // [END_EXCLUDE]
         }
         // The signed-in user info.
@@ -71,7 +69,6 @@ function initApp(){
           // [END_EXCLUDE]
         }
         // [START_EXCLUDE]
-        document.getElementById('quickstart-sign-in').disabled = false;
         // [END_EXCLUDE]
       });
       // [END authstatelistener]
